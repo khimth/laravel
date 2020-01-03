@@ -7,7 +7,7 @@
             Create a New User
         </div>
         <div class="card-body">
-            <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('users.profile.update') }}" method="post" enctype="multipart/form-data">
                 {{ csrf_field() }}
                 <div class="form-group">
                     <label for="name">Name</label>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Profile;
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
+use Session;
 
 class ProfileController extends Controller
 {
@@ -67,14 +70,33 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'name' => 'required',
             'email' => 'required|email',
             'facebook' => 'required|url',
-            'youtube' => 'required|url'
+            'youtube' => 'required|url',
+            'about' => 'required',
+            'avatar' => 'image'
         ]);
+        $user = User::find(Auth::user()->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->save();
+        $profile = Profile::find(Auth::user()->id);
+        $profile->facebook = $request->facebook;
+        $profile->youtube = $request->youtube;
+        $profile->about = $request->about;
+        if( $request->hasFile('avatar')) {
+            $avatarImage = $request->avatar;
+            $avatarNewImageName = time() . $avatarImage->getClientOriginalName();
+            $avatarImage->move('uploads/avatars' . $avatarNewImageName);
+            $profile->avatar = 'uploads/avatars/' . $avatarNewImageName;
+        }
+        $profile->save();
+        Session::flash('success', 'Profile updated successfully');
+        //return redirect()->back();
     }
 
     /**
