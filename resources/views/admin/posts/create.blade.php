@@ -29,7 +29,7 @@
                     </div>
                     <div class="form-group">
                         <label for="content">Content</label>
-                        <textarea id="content" name="content" cols="5" rows="5" class="form-control"></textarea>
+                        <textarea id="content" name="content" cols="5" rows="10" class="form-control"></textarea>
                     </div>
                     <div class="form-group">
                         <div class="text-center">
@@ -41,3 +41,14 @@
             </div>
         </div>
     @endsection
+    @section('styles')
+        <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+    @stop
+    @section('scripts')
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#content').summernote();
+            });
+        </script>
+    @stop

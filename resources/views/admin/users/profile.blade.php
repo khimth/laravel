@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success">Update Profile RTest</button>
+                        <button type="submit" class="btn btn-success">Update Profile</button>
                     </div>
                 </div>
             </form>

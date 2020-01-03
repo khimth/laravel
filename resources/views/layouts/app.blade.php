@@ -101,7 +101,7 @@
                                 <a href=" {{ route('users') }}">Users</a>
                             </li>
                             <li class="list-group-item">
-                                <a href=" {{ route('users.create') }}">Create User</a>
+                                <a href=" {{ route('users.create') }}">Create Userfgg</a>
                             </li>
                             @endif
                             <li class="list-group-item">
@@ -122,14 +122,12 @@
             </div>
         </main>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/toastr.min.js') }}"></script>
     <script>
         @if(Session::has('success'))
             toastr.success("{{ Session::get('success') }}")
         @endif
-
         @if(Session::has('info'))
             toastr.info("{{ Session::get('info') }}")
         @endif
