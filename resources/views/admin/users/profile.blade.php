@@ -26,7 +26,7 @@
                     <input type="text" class="form-control" name="facebook" id="facebook" value="{{ $user->profile->facebook }}">
                 </div>
                 <div class="form-group">
-                    <label for="youtube">Youtube Profile</label>
+                    <label for="youtube">Youtube Profile Test</label>
                     <input type="text" class="form-control" name="youtube" id="youtube" value="{{ $user->profile->youtube }}">
                 </div>
                 <div class="form-group">
@@ -39,11 +39,22 @@
                 </div>
                 <div class="form-group">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-success">Update Profile</button>
+                        <button type="submit" class="btn btn-success">Update Profile RTest</button>
                     </div>
                 </div>
             </form>
 
         </div>
     </div>
-@endsection
+@stop
+@section('styles')
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.css" rel="stylesheet">
+@stop
+@section('scripts')
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#about').summernote();
+        });
+    </script>
+@stop

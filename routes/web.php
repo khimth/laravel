@@ -131,5 +131,15 @@ Auth::routes();
             'uses' => 'ProfileController@update',
             'as' => 'users.profile.update'
         ]);
+
+        Route::get('/settings', [
+            'uses' => 'SettingsController@index',
+            'as' => 'settings'
+        ]);
+
+        Route::post('/settings/update', [
+            'uses' => 'SettingsController@update',
+            'as' => 'settings.update'
+        ]);
     });
 

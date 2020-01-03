@@ -91,12 +91,12 @@ class ProfileController extends Controller
         if( $request->hasFile('avatar')) {
             $avatarImage = $request->avatar;
             $avatarNewImageName = time() . $avatarImage->getClientOriginalName();
-            $avatarImage->move('uploads/avatars' . $avatarNewImageName);
+            $avatarImage->move('uploads/avatars', $avatarNewImageName);
             $profile->avatar = 'uploads/avatars/' . $avatarNewImageName;
         }
         $profile->save();
         Session::flash('success', 'Profile updated successfully');
-        //return redirect()->back();
+        return redirect()->back();
     }
 
     /**
