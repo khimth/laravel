@@ -16,6 +16,11 @@ Route::get('/', [
     'as' => 'index'
 ]);
 
+Route::get('/{slug}', [
+    'uses' => 'FrontendController@singlePost',
+    'as' => 'single.post'
+]);
+
 Auth::routes();
 
     Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
@@ -23,6 +28,7 @@ Auth::routes();
             'uses' =>'HomeController@index',
             'as' => 'home'
         ]);
+
         Route::get('/post/create', [
             'uses' => 'PostController@create',
             'as' => 'post.create'
