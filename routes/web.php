@@ -16,9 +16,14 @@ Route::get('/', [
     'as' => 'index'
 ]);
 
-Route::get('/{slug}', [
+Route::get('post/{slug}', [
     'uses' => 'FrontendController@singlePost',
     'as' => 'single.post'
+]);
+
+Route::get('category/{id}', [
+    'uses' => 'FrontendController@getCategory',
+    'as' => 'category.single'
 ]);
 
 Auth::routes();
