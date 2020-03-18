@@ -91,27 +91,17 @@
 
                         <div class="blog-details-author-content">
                             <div class="author-info">
-                                <h5 class="author-name">Philip Demarco</h5>
-                                <p class="author-info">SEO Specialist</p>
+                                <h5 class="author-name">{{ $user->name }}</h5>
                             </div>
-                            <p class="text">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-                                nonummy nibh euismod.
+                            <p class="text">{!! $user->profile->about !!}
                             </p>
                             <div class="socials">
 
-                                <a href="#" class="social__item">
+                                <a href="{{ $user->profile->facebook }}" target="_blank" class="social__item">
                                     <img src="{{ asset('app/svg/circle-facebook.svg')}}" alt="facebook">
                                 </a>
 
-                                <a href="#" class="social__item">
-                                    <img src="{{ asset('app/svg/twitter.svg')}}" alt="twitter">
-                                </a>
-
-                                <a href="#" class="social__item">
-                                    <img src="{{ asset('app/svg/google.svg')}}" alt="google">
-                                </a>
-
-                                <a href="#" class="social__item">
+                                <a href="{{ $user->profile->youtube }}" target="_blank" class="social__item">
                                     <img src="{{ asset('app/svg/youtube.svg')}}" alt="youtube">
                                 </a>
 

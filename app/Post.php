@@ -9,7 +9,7 @@ class Post extends Model
 {
     use SoftDeletes;
     protected $fillable = [
-        'title', 'content', 'featured_image', 'category_id', 'slug'
+        'title', 'content', 'featured_image', 'category_id', 'slug', 'created_by'
     ];
 
     protected $dates = ['deleted_at'];
@@ -23,6 +23,10 @@ class Post extends Model
     }
 
     public function tags() {
-        $this->belongsToMany('App\Tag');
+        return $this->belongsToMany('App\Tag');
+    }
+
+    public function user() {
+        return $this->belongsTo('App\User');
     }
 }

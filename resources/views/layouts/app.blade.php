@@ -87,6 +87,7 @@
                             <li class="list-group-item">
                                 <a href=" {{ route('categories.create') }}">Create New Category</a>
                             </li>
+
                             <li class="list-group-item">
                                 <a href=" {{ route('posts') }}">Manage Posts</a>
                             </li>
@@ -96,12 +97,18 @@
                             <li class="list-group-item">
                                 <a href=" {{ route('post.create') }}">Create New Post</a>
                             </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('products') }}">Products</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href=" {{ route('products.create') }}">Add Product</a>
+                            </li>
                             @if(Auth::user()->admin)
                             <li class="list-group-item">
                                 <a href=" {{ route('users') }}">Users</a>
                             </li>
                             <li class="list-group-item">
-                                <a href=" {{ route('users.create') }}">Create Userfgg</a>
+                                <a href=" {{ route('users.create') }}">Create User</a>
                             </li>
                             @endif
                             <li class="list-group-item">

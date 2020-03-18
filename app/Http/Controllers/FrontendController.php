@@ -20,8 +20,8 @@ class FrontendController extends Controller
                 'first_post' => Post::orderBy('created_at', 'desc')->first(),
                 'second_post' => Post::orderBy('created_at', 'desc')->skip(1)->take(1)->get()->first(),
                 'third_post' => Post::orderBy('created_at', 'desc')->skip(2)->take(1)->get()->first(),
-                'laravel' => Category::find(3),
-                'mobile' => Category::find(6),
+                'laravel' => Category::find(1),
+                'mobile' => Category::find(2),
                 'contact_email' => Setting::first()->contact_email,
                 'contact_phone' => Setting::first()->contact_number,
                 'address' => Setting::first()->address

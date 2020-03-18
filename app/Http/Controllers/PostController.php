@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Post;
@@ -57,7 +58,8 @@ class PostController extends Controller
             'category_id' => $request->category,
             'featured_image' => 'uploads/posts/' . $featuredImageNewName,
             'content' => $request->content,
-            'slug' => STR::slug($request->title)
+            'slug' => STR::slug($request->title),
+            'created_by' => Auth::id()
         ]);
         Session::flash('success', 'Post created successfully');
         return redirect()->back();
