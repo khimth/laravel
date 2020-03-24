@@ -38,6 +38,39 @@
         'as' => 'product.single'
     ]);
 
+    Route::post('cart/add', [
+        'uses' => 'ShopController@addToCart',
+        'as' => 'cart.add'
+    ]);
+
+    Route::get('cart', [
+        'uses' => 'ShopController@cart',
+        'as' => 'cart'
+    ]);
+
+    Route::get('cart/delete/{id}', [
+      'uses' => 'ShopController@deleteCartItem',
+      'as' => 'cart.delete'
+    ]);
+
+    Route::get('cart/increment/{id}', [
+      'uses' => 'ShopController@itemIncrement',
+      'as' => 'cart.increment'
+    ]);
+
+    Route::get('cart/decrement/{id}', [
+      'uses' => 'ShopController@itemDecrement',
+      'as' => 'cart.decrement'
+    ]);
+
+    Route::get('/checkout', [
+        'uses' => 'ShopController@checkout',
+        'as' => 'checkout'
+    ]);
+    Route::post('/cart/checkout', [
+      'uses' => 'ShopController@pay',
+      'as' => 'cart.checkout'
+    ]);
     Route::get('results', function () {
         $posts = \App\Post::where('title', 'like', '%' . request('query') . '%')
           ->get();

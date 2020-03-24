@@ -20,12 +20,15 @@
                                 <h5 class="books-title"><a href="{{ route('product.single', ['id' => $product->id]) }}">{{ $product->name }}</a></h5>
                                 <div class="books-price">£ {{ $product->price }}</div>
                             </div>
-
-                            <a href="19_cart.html" class="btn btn-small btn--dark add">
+                            <form action="{{ route('cart.add') }}" method="post">
+                                {{ csrf_field() }}
+                                <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                <input type="hidden" name="quantity" value="2">
+                            <button class="btn btn-small btn--dark add">
                                 <span class="text">Add to Cart</span>
                                 <i class="seoicon-commerce"></i>
-                            </a>
-
+                            </button>
+                            </form>
                         </div>
                     </div>
                         @php $i++; @endphp
